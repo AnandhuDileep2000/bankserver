@@ -1,0 +1,90 @@
+server creation
+----------------
+    1. npm init
+    2. install express      - npm i express
+
+steps
+-----
+    1. import express
+    2. create app using express
+    3. setting port to run the app (3000)
+    
+
+JWT (Json Web Token)
+--------------------
+    -user authentication
+    -jsonwebtoken  - library used to generate Token
+    -sign()    - method used to generate token 
+    -verify() - method used for token Verification
+
+
+
+Token Verification
+------------------
+
+
+    Middlewares (ithill use cheyanath token inne vallidate cheyan ann)
+    -----------
+        -it's a function with 3 arguments  (req,res,next)
+        -have the capacity to control http request in node
+        -two types of Middlewares
+            1.Application specific Middlewares  -it happens before all the http index
+            2.Router specific Middlewares       -can apply only to the specific request
+        -next() -methodused inside Middlewares to continue node execution
+
+mongoDB()
+---------
+
+    1. to see the database      
+        -show dbs
+    2. to open a database
+        -use (databaseName)
+    3. to list collections
+        -show collections
+    4. to show the data inside a collections
+        -db.(collectionName).find()
+    5. to show a single data inside a collection
+        -db.(collectionName).findOne({key:value})
+                    
+                    example -db.user.findOne({acno:1000})  
+                        output will be present or unpresent
+                            -present - full data of the object
+                            -unpresent - null
+    
+    6. insert new data
+        -db.(collectionName).insertOne({keys:values})
+
+    7. to find datas using a particular condition
+        -db.(collectionName).find({condition})            
+              condition creates using query selection operator
+    
+        to access datas which have balance above 40000 
+            db.users.find({balance:{gt:40000}})
+
+    8. to delete a data from collection
+        -db.(collectionName).deleteOne({key:value})         -delete count=0 -onnum delete ayitilla
+                                                            -delete count=1 -oru data delete ayiii
+
+    9. to update
+        -db.(collectionName).updateOne({oldkey:oldvalue},{$set:{newkey:newvalue}})
+
+            example     - db.user.updateOne({username:anu},{$set:{username:anu v}})
+
+
+database server integration (mongodb nodwe connection)
+---------------------------   27017  3000
+
+
+    mongoose - library used to integrate mongodb and server
+                npm install mongoose
+
+    connect() - method used to create connection string
+
+    model()  - method used to create model
+
+    steps 
+    -----
+
+        1.import mongoose
+        2.connection string creation
+        3.model creation for collection (model name is singular form of collection Name)
